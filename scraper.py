@@ -23,6 +23,7 @@ soup = BeautifulSoup(html)
 
 # find all entries with the required class
 block = soup.find('div',{'class':'container'})
+print block
 links = block.findAll('a',href=True)
 
 for link in links:
