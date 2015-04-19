@@ -23,7 +23,7 @@ soup = BeautifulSoup(html)
 
 # find all entries with the required class
 block = soup.find('div',{'class':'row'})
-links = blocks.findAll('a',{'class':'treeMonthlyFiles_0'})
+links = block.findAll('a',href=True)
 
 for link in links:
 	url = link['href']
