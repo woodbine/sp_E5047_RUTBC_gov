@@ -22,14 +22,14 @@ html = urllib2.urlopen(url)
 soup = BeautifulSoup(html)
 
 # find all entries with the required class
-links = soup.findAll('a',{'class':'treeMonthlyFiles_0'})
+block = soup.find('div',{'class':'row'})
+links = blocks.findAll('a',{'class':'treeMonthlyFiles_0'})
 
 for link in links:
 	url = link['href']
-	if 'javascript:fnRequestFile' in url:
-		url = url.replace("javascript:fnRequestFile('","")
-		url = url.replace("');","")
-		title = link.contents[0]
+	if '.csv' in url:
+		url = 'http://www.richmond.gov.uk' + url
+		title = link.text
 		# create the right strings for the new filename
 		csvYr = title.split(' ')[1]
 		csvMth = title.split(' ')[0][:3]
