@@ -26,6 +26,7 @@ block = soup.find('div',{'class':'row'})
 links = block.findAll('a',href=True)
 
 for link in links:
+	print link
 	url = link['href']
 	if '.csv' in url:
 		url = 'http://www.richmond.gov.uk' + url
