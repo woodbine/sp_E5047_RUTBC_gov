@@ -101,8 +101,8 @@ for link in links:
     if '.csv' in url:
         url = 'http://www.richmond.gov.uk/' + url
         title = link.text
-        csvYr = title.split(' ')[1]
-        csvMth = title.split(' ')[0][:3]
+        csvYr = title.split()[1]
+        csvMth = title.split()[0][:3]
         csvMth = convert_mth_strings(csvMth.upper())
         data.append([csvYr, csvMth, url])
 
